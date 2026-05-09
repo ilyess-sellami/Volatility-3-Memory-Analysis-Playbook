@@ -1,1 +1,11 @@
-# Volatility-3-Memory-Analysis-Playbook
+# Volatility 3 Memory Analysis Playbook
+
+This playbook standardizes the analysis of memory dumps using [Volatility 3](https://github.com/volatilityfoundation/volatility3) to:
+
+- Identify malicious processes
+- Detect persistence mechanisms
+- Extract network indicators (C2, sockets, connections)
+- Reconstruct attacker behavior from volatile memory
+- Correlate memory artifacts with incident timeline
+
+---
