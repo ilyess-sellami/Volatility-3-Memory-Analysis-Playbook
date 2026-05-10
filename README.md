@@ -8,7 +8,7 @@ This playbook standardizes the analysis of memory dumps using **[Volatility 3](h
 - Reconstruct **attacker behavior** from volatile memory
 - Correlate **memory artifacts with incident timeline**
 
-> This playbook is not just a set of commands. It's a **question-driven investigation framework** designed to help you think like a senior DFIR analyst during memory analysis.
+This playbook is not just a set of commands. It's a **question-driven investigation framework** designed to help you think like a senior DFIR analyst during memory analysis.
 
 ---
 
