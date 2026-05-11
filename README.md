@@ -104,3 +104,41 @@ vol -f memory.raw windows.handles --pid <PID>
 ```bash
 vol -f memory.raw windows.pstree --pid <PID>
 ```
+
+### What privileges does the suspicious process have?
+
+```bash
+vol -f memory.raw windows.privs --pid <PID>
+```
+
+----
+
+## 04 - Network Connections (C2 Detection Layer)
+
+### What network connections were active / Which processes are communicating externally?
+
+```bash
+vol -f memory.raw windows.netscan
+```
+
+---
+
+##  05 Malware Persistence Mechanisms 
+
+### Are there malicious Run/RunOnce registry keys? 
+
+```bash
+vol -f memory.raw windows.registry.printkey
+```
+
+### Are there suspicious services installed?
+
+```bash
+vol -f memory.raw windows.services
+```
+
+### Are there malicious scheduled tasks? 
+
+```bash
+vol -f memory.raw windows.scheduledtasks
+```
