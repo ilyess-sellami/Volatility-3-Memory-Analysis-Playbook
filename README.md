@@ -142,3 +142,63 @@ vol -f memory.raw windows.services
 ```bash
 vol -f memory.raw windows.scheduledtasks
 ```
+
+---
+
+## 06 - Credential Dumping Detection 
+
+### Is there evidence of LSASS memory access?
+
+```bash
+Is there evidence of LSASS memory access?
+```
+
+### Is Mimikatz or credential dumping activity present? 
+
+```bash
+vol -f memory.raw windows.malfind
+```
+
+### Are suspicious DLLs loaded into lsass.exe? 
+
+```bash
+vol -f memory.raw windows.dlllist --pid <LSASS_PID>
+```
+
+---
+
+## 07 - Memory Artifacts Extraction
+
+### What files exist in memory?
+
+```bash
+vol -f memory.raw windows.filescan
+```
+
+### Can suspicious files be extracted from memory? 
+
+```bash
+vol -f memory.raw windows.dumpfiles
+```
+
+---
+
+## 08 - Browser & User Artifacts 
+
+### What browser history exists in memory? 
+
+```bash
+vol -f memory.raw windows.chromehistory
+```
+
+### What applications were executed by the user? 
+
+```bash
+vol -f memory.raw windows.userassist
+```
+
+### What folders and files were accessed?
+
+```bash
+vol -f memory.raw windows.shellbags
+```
