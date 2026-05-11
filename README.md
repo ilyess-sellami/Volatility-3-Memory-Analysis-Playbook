@@ -150,7 +150,7 @@ vol -f memory.raw windows.scheduledtasks
 ### Is there evidence of LSASS memory access?
 
 ```bash
-Is there evidence of LSASS memory access?
+vol -f memory.raw windows.handles
 ```
 
 ### Is Mimikatz or credential dumping activity present? 
