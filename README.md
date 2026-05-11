@@ -115,7 +115,7 @@ vol -f memory.raw windows.privs --pid <PID>
 
 ## 04 - Network Connections (C2 Detection Layer)
 
-#### What network connections were active / Which processes are communicating externally?
+#### What network connections were active & which processes are communicating externally?
 
 ```bash
 vol -f memory.raw windows.netscan
