@@ -123,7 +123,7 @@ vol -f memory.raw windows.netscan
 
 ---
 
-##  05 Malware Persistence Mechanisms 
+## - 05 Malware Persistence Mechanisms 
 
 ### Are there malicious Run/RunOnce registry keys? 
 
