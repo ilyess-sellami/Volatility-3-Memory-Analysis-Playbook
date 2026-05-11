@@ -14,14 +14,14 @@ This playbook is not just a set of commands. It's a **question-driven investigat
 
 ## 00 - Evidence Integrity & Hash Verification
 
-### What is the SHA256/MD5 hash of the memory dump?
+#### What is the SHA256/MD5 hash of the memory dump?
 
 ```bash
 sha256sum memory.raw
 md5sum memory.raw
 ```
 
-### What is the size of the memory dump?
+#### What is the size of the memory dump?
 
 ```bash
 ls -lh memory.raw
@@ -31,19 +31,19 @@ ls -lh memory.raw
 
 ## 01 - Memory Image Identification & System Context
 
-### What operating system is running?
+#### What operating system is running?
 
 ```bash
 vol -f memory.raw banners
 ```
 
-### What is the Windows system information (hostname, build version, timezone, process architecture)?
+#### What is the Windows system information (hostname, build version, timezone, process architecture)?
 
 ```bash
 vol -f memory.raw windows.info
 ```
 
-### What is the Linux kernel version?
+#### What is the Linux kernel version?
 
 ```bash
 vol -f memory.raw linux.banner
@@ -53,25 +53,25 @@ vol -f memory.raw linux.banner
 
 ## 02 - Process Enumeration (Core Investigation)
 
-### What processes were running?
+#### What processes were running?
 
 ```bash
 vol -f memory.raw windows.pslist
 ```
 
-### What is the parent-child process relationship?
+#### What is the parent-child process relationship?
 
 ```bash
 vol -f memory.raw windows.pstree
 ```
 
-### Are there hidden or unlinked processes?
+#### Are there hidden or unlinked processes?
 
 ```bash
 vol -f memory.raw windows.psscan
 ```
 
-### What suspicious processes are running from Temp/AppData folders?
+#### What suspicious processes are running from Temp/AppData folders?
 
 ```bash
 vol -f memory.raw windows.cmdline
@@ -81,31 +81,31 @@ vol -f memory.raw windows.cmdline
 
 ## 03 - Suspicious Process Investigation
 
-### What is the command line used by a suspicious process?
+#### What is the command line used by a suspicious process?
 
 ```bash
 vol -f memory.raw windows.cmdline --pid <PID>
 ```
 
-### What DLLs are loaded by the suspicious process?
+#### What DLLs are loaded by the suspicious process?
 
 ```bash
 vol -f memory.raw windows.dlllist --pid <PID>
 ```
 
-### What handles are opened by the suspicious process?
+#### What handles are opened by the suspicious process?
 
 ```bash
 vol -f memory.raw windows.handles --pid <PID>
 ```
 
-### What is the process tree of a suspicious PID?
+#### What is the process tree of a suspicious PID?
 
 ```bash
 vol -f memory.raw windows.pstree --pid <PID>
 ```
 
-### What privileges does the suspicious process have?
+#### What privileges does the suspicious process have?
 
 ```bash
 vol -f memory.raw windows.privs --pid <PID>
@@ -115,7 +115,7 @@ vol -f memory.raw windows.privs --pid <PID>
 
 ## 04 - Network Connections (C2 Detection Layer)
 
-### What network connections were active / Which processes are communicating externally?
+#### What network connections were active / Which processes are communicating externally?
 
 ```bash
 vol -f memory.raw windows.netscan
@@ -125,19 +125,19 @@ vol -f memory.raw windows.netscan
 
 ## 05 - Malware Persistence Mechanisms 
 
-### Are there malicious Run/RunOnce registry keys? 
+#### Are there malicious Run/RunOnce registry keys? 
 
 ```bash
 vol -f memory.raw windows.registry.printkey
 ```
 
-### Are there suspicious services installed?
+#### Are there suspicious services installed?
 
 ```bash
 vol -f memory.raw windows.services
 ```
 
-### Are there malicious scheduled tasks? 
+#### Are there malicious scheduled tasks? 
 
 ```bash
 vol -f memory.raw windows.scheduledtasks
@@ -147,19 +147,19 @@ vol -f memory.raw windows.scheduledtasks
 
 ## 06 - Credential Dumping Detection 
 
-### Is there evidence of LSASS memory access?
+#### Is there evidence of LSASS memory access?
 
 ```bash
 vol -f memory.raw windows.handles
 ```
 
-### Is Mimikatz or credential dumping activity present? 
+#### Is Mimikatz or credential dumping activity present? 
 
 ```bash
 vol -f memory.raw windows.malfind
 ```
 
-### Are suspicious DLLs loaded into lsass.exe? 
+#### Are suspicious DLLs loaded into lsass.exe? 
 
 ```bash
 vol -f memory.raw windows.dlllist --pid <LSASS_PID>
@@ -169,13 +169,13 @@ vol -f memory.raw windows.dlllist --pid <LSASS_PID>
 
 ## 07 - Memory Artifacts Extraction
 
-### What files exist in memory?
+#### What files exist in memory?
 
 ```bash
 vol -f memory.raw windows.filescan
 ```
 
-### Can suspicious files be extracted from memory? 
+#### Can suspicious files be extracted from memory? 
 
 ```bash
 vol -f memory.raw windows.dumpfiles
@@ -185,19 +185,19 @@ vol -f memory.raw windows.dumpfiles
 
 ## 08 - Browser & User Artifacts 
 
-### What browser history exists in memory? 
+#### What browser history exists in memory? 
 
 ```bash
 vol -f memory.raw windows.chromehistory
 ```
 
-### What applications were executed by the user? 
+#### What applications were executed by the user? 
 
 ```bash
 vol -f memory.raw windows.userassist
 ```
 
-### What folders and files were accessed?
+#### What folders and files were accessed?
 
 ```bash
 vol -f memory.raw windows.shellbags
