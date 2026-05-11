@@ -28,3 +28,53 @@ ls -lh memory.raw
 ```
 
 ---
+
+## 01 - Memory Image Identification & System Context
+
+### What operating system is running?
+
+```bash
+vol -f memory.raw banners
+```
+
+### What is the Windows system information (hostname, build version, timezone, process architecture)?
+
+```bash
+vol -f memory.raw windows.info
+```
+
+### What is the Linux kernel version?
+
+```bash
+vol -f memory.raw linux.banner
+```
+
+---
+
+## 02 - Process Enumeration (Core Investigation)
+
+### What processes were running?
+
+```bash
+vol -f memory.raw windows.pslist
+```
+
+### What is the parent-child process relationship?
+
+```bash
+vol -f memory.raw windows.pstree
+```
+
+### Are there hidden or unlinked processes?
+
+```bash
+vol -f memory.raw windows.psscan
+```
+
+### What suspicious processes are running from Temp/AppData folders?
+
+```bash
+vol -f memory.raw windows.cmdline
+```
+
+---
