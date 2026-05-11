@@ -78,3 +78,29 @@ vol -f memory.raw windows.cmdline
 ```
 
 ---
+
+## 03 - Suspicious Process Investigation
+
+### What is the command line used by a suspicious process?
+
+```bash
+vol -f memory.raw windows.cmdline --pid <PID>
+```
+
+### What DLLs are loaded by the suspicious process?
+
+```bash
+vol -f memory.raw windows.dlllist --pid <PID>
+```
+
+### What handles are opened by the suspicious process?
+
+```bash
+vol -f memory.raw windows.handles --pid <PID>
+```
+
+### What is the process tree of a suspicious PID?
+
+```bash
+vol -f memory.raw windows.pstree --pid <PID>
+```
